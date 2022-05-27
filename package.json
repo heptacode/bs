@@ -1,0 +1,33 @@
+{
+  "name": "@heptacode/bs",
+  "version": "0.0.0",
+  "description": "Store Helper for Browsers",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./scripts/esbuild.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heptacode/bs.git"
+  },
+  "author": {
+    "name": "Hyunwoo Kim",
+    "email": "admin@hyunwoo.kim",
+    "url": "https://hyunwoo.kim"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heptacode/bs/issues"
+  },
+  "homepage": "https://github.com/heptacode/bs#readme",
+  "keywords": [
+    "state",
+    "store"
+  ],
+  "devDependencies": {
+    "esbuild": "latest",
+    "esbuild-plugin-alias": "latest",
+    "esbuild-plugin-run": "latest"
+  },
+  "packageManager": "yarn@3.2.1"
+}
