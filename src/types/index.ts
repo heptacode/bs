@@ -17,6 +17,7 @@ export type State = { [key: string]: any };
  *
  * @member prefix The prefix of store item
  */
-export interface StoreOptions {
+export interface StoreOptions<T = any> {
   prefix?: string;
+  defaultValue?: Partial<T>;
 }
