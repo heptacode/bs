@@ -1,7 +1,7 @@
 import { prependPrefix } from '@/modules/prependPrefix';
 import { StateListener, StoreOptions } from '@/types';
 
-export function useLocalStore(storeOptions?: StoreOptions) {
+export function useLocalStore<T = any>(storeOptions?: StoreOptions<T>) {
   const listeners: Set<StateListener> = new Set();
 
   /**
@@ -10,9 +10,12 @@ export function useLocalStore(storeOptions?: StoreOptions) {
    * @param key The key of item
    * @param value The value of item
    */
-  function set<T = any>(key: string, value: T): void {
+  function set<KeyType extends keyof T, ValueType = T[KeyType]>(
+    key: KeyType,
+    value: ValueType
+  ): void {
     window.localStorage.setItem(
-      prependPrefix(key, storeOptions),
+      prependPrefix(String(key), storeOptions),
       typeof value === 'string' ? value : JSON.stringify(value)
     );
   }
@@ -23,15 +26,18 @@ export function useLocalStore(storeOptions?: StoreOptions) {
    * @param key The key of item
    * @param fallbackValue Default placeholder if value doesn't exists
    */
-  function get<T = any>(key: string, fallbackValue?: T): T {
-    const value = window.localStorage.getItem(prependPrefix(key, storeOptions));
+  function get<KeyType extends keyof T, ValueType = T[KeyType]>(
+    key: KeyType,
+    fallbackValue?: ValueType
+  ): ValueType {
+    const value = window.localStorage.getItem(prependPrefix(String(key), storeOptions));
     if (value === null || value === undefined) {
-      return fallbackValue as T;
+      return fallbackValue as ValueType;
     } else if (typeof JSON.parse(JSON.stringify(value)) === 'string') {
-      return JSON.parse(JSON.stringify(value)) as T;
+      return JSON.parse(JSON.stringify(value)) as ValueType;
     }
 
-    return JSON.parse(value) as T;
+    return JSON.parse(value) as ValueType;
   }
 
   /**
@@ -57,6 +63,16 @@ export function useLocalStore(storeOptions?: StoreOptions) {
   function clear() {
     window.localStorage.clear();
   }
+
+  function resetDefault() {
+    if (storeOptions?.defaultValue) {
+      Object.keys(storeOptions.defaultValue).forEach(key => {
+        set(key as keyof T, storeOptions[key]);
+      });
+    }
+  }
+
+  resetDefault();
 
   window.addEventListener('storage', (event: StorageEvent) => {
     if (event.storageArea === localStorage) {
