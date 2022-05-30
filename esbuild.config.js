@@ -5,6 +5,7 @@ exports.default = {
   outfile: 'dist/index.js',
   platform: 'node',
   format: 'cjs',
+  target: 'esnext',
   bundle: true,
   minify: true,
   plugins: [
