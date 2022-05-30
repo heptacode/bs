@@ -2,29 +2,29 @@
   "name": "@heptacode/bs",
   "version": "0.0.0",
   "description": "Store Helper for Browsers",
-  "main": "index.js",
-  "scripts": {
-    "dev": "node ./scripts/esbuild.dev.js",
-    "build": "tsc --noEmit && node ./scripts/esbuild.build.js"
+  "keywords": [
+    "state",
+    "store"
+  ],
+  "homepage": "https://github.com/heptacode/bs",
+  "bugs": {
+    "url": "https://github.com/heptacode/bs/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heptacode/bs.git"
   },
-  "author": {
-    "name": "Hyunwoo Kim",
-    "email": "admin@hyunwoo.kim",
-    "url": "https://hyunwoo.kim"
-  },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/heptacode/bs/issues"
-  },
-  "homepage": "https://github.com/heptacode/bs#readme",
-  "keywords": [
-    "state",
-    "store"
+  "author": "Hyunwoo Kim <admin@hyunwoo.kim> (https://hyunwoo.kim)",
+  "contributors": [
+    "Jonghoon Park <pjh8667@gmail.com> (https://andy0414.com)"
   ],
+  "main": "dist/index.js",
+  "types": "src/types/index.d.ts",
+  "scripts": {
+    "dev": "node scripts/esbuild.dev",
+    "build": "tsc --noEmit && node scripts/esbuild.build"
+  },
   "devDependencies": {
     "esbuild": "latest",
     "esbuild-plugin-alias": "latest",
