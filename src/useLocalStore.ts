@@ -44,6 +44,7 @@ export function useLocalStore<T = any>(storeOptions?: StoreOptions<T>) {
    * Add a listener to state change
    *
    * @param listener This will fire on state change
+   * @returns This will delete your listener
    */
   function subscribe(listener: StateListener) {
     listeners.add(listener);
@@ -86,5 +87,5 @@ export function useLocalStore<T = any>(storeOptions?: StoreOptions<T>) {
     }
   });
 
-  return { set, get, subscribe, unsubscribeAll, clear };
+  return { set, get, subscribe, unsubscribeAll, resetDefault, clear };
 }

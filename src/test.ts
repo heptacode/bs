@@ -1,4 +1,4 @@
-import { useLocalStore } from './localStore';
+import { useLocalStore } from './useLocalStore';
 
 const localStore = useLocalStore<{ key1: string; key2: boolean }>({
   prefix: '1',
