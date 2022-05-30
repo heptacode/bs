@@ -4,7 +4,8 @@
   "description": "Store Helper for Browsers",
   "main": "index.js",
   "scripts": {
-    "dev": "node ./scripts/esbuild.mjs"
+    "dev": "node ./scripts/esbuild.dev.js",
+    "build": "tsc --noEmit && node ./scripts/esbuild.build.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,8 @@
   "devDependencies": {
     "esbuild": "latest",
     "esbuild-plugin-alias": "latest",
-    "esbuild-plugin-run": "latest"
+    "esbuild-plugin-run": "latest",
+    "typescript": "latest"
   },
   "packageManager": "yarn@3.2.1"
 }
