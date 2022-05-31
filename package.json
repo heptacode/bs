@@ -25,10 +25,22 @@
     "dev": "node scripts/esbuild.dev",
     "build": "tsc --noEmit && node scripts/esbuild.build"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
   "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/preset-typescript": "^7.17.12",
+    "@jest/types": "latest",
+    "@types/jest": "latest",
     "esbuild": "latest",
     "esbuild-plugin-alias": "latest",
     "esbuild-plugin-run": "latest",
+    "jest": "latest",
+    "jest-environment-jsdom": "latest",
+    "ts-jest": "latest",
     "typescript": "latest"
   },
   "packageManager": "yarn@3.2.1"
