@@ -65,7 +65,7 @@ export function useLocalStore<T = any>(storeOptions?: StoreOptions<T>) {
     window.localStorage.clear();
   }
 
-  function resetDefault() {
+  function init() {
     if (storeOptions?.defaultValue) {
       Object.keys(storeOptions.defaultValue).forEach(key => {
         set(key as keyof T, storeOptions[key]);
@@ -73,7 +73,7 @@ export function useLocalStore<T = any>(storeOptions?: StoreOptions<T>) {
     }
   }
 
-  resetDefault();
+  init();
 
   window.addEventListener('storage', (event: StorageEvent) => {
     if (event.storageArea === localStorage) {
@@ -87,5 +87,5 @@ export function useLocalStore<T = any>(storeOptions?: StoreOptions<T>) {
     }
   });
 
-  return { set, get, subscribe, unsubscribeAll, resetDefault, clear };
+  return { set, get, subscribe, unsubscribeAll, init, clear };
 }
