@@ -5,12 +5,7 @@
  * @param newState New value of item
  * @param oldState Old value of item
  */
-export type StateListener = (key: string, newState: State, oldState: State) => void;
-
-/**
- * State
- */
-export type State = { [key: string]: any };
+export type StateListener<T = any> = (key: string | null, newState: T, oldState?: T) => void;
 
 /**
  * StoreOptions

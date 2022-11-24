@@ -1,8 +1,8 @@
 import { StoreOptions } from '@/types';
 
-export function prependPrefix(key: string, storeOptions?: StoreOptions) {
+export function prependPrefix(key: string | number | symbol, storeOptions?: StoreOptions) {
   if (storeOptions?.prefix) {
-    return `${storeOptions?.prefix}:${key}`;
+    return `${storeOptions?.prefix}:${String(key)}`;
   }
-  return key;
+  return String(key);
 }
