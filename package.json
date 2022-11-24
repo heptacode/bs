@@ -22,8 +22,9 @@
   "main": "dist/index.js",
   "types": "src/types/index.d.ts",
   "scripts": {
+    "build": "tsc && node scripts/esbuild.build",
     "dev": "node scripts/esbuild.dev",
-    "build": "tsc --noEmit && node scripts/esbuild.build"
+    "test": "jest"
   },
   "browserslist": [
     "> 1%",
@@ -35,13 +36,14 @@
     "@babel/preset-typescript": "^7.17.12",
     "@jest/types": "latest",
     "@types/jest": "latest",
-    "esbuild": "latest",
-    "esbuild-plugin-alias": "latest",
-    "esbuild-plugin-run": "latest",
+    "esbuild": "^0",
+    "esbuild-plugin-alias": "^0",
+    "esbuild-plugin-run": "^0",
     "jest": "latest",
     "jest-environment-jsdom": "latest",
     "ts-jest": "latest",
-    "typescript": "latest"
+    "typescript": "^4",
+    "vite": "latest"
   },
   "packageManager": "yarn@3.2.1"
 }

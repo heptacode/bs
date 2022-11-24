@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
+    "module": "esnext",
     "target": "esnext",
     "esModuleInterop": true,
     "moduleResolution": "node",
     "noImplicitAny": false,
+    "noEmit": true,
     "strict": true,
     "removeComments": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    },
-    "lib": ["esnext", "dom"]
+    }
   },
-  "include": ["src", "tests/**/*.test.ts", "tests/**/*.spec.ts"],
+  "include": ["src", "tests"],
   "exclude": [".yarn", "node_modules"]
 }
